@@ -2,9 +2,13 @@ from app import db
 from app.models.User import User, UserType
 from flask import Blueprint, abort, jsonify, request, session
 from sqlalchemy.exc import IntegrityError
-from app.blueprints.user_auth import user_auth
+from app.blueprints.user_util import user_auth, need_user_logged
 
 user_endpoint = Blueprint("user_endpoint", __name__)
+
+
+def abort_bad_json():
+    abort(400, description="Missing fields in JSON data")
 
 
 @user_endpoint.errorhandler(400)
@@ -30,7 +34,7 @@ def register_user():
     """
     data = request.get_json()
     try:
-        new_user = User(data["login"], data["name"], data["surname"], data["e_mail"],
+        new_user = User(data["login"], data["name"], data["surname"], data["email"],
                         UserType.USER, data["password"])
         db.session.add(new_user)
         db.session.commit()
@@ -68,7 +72,7 @@ def check_auth(level: str):
     try:
         req_level = UserType[level.upper()]
         if not user.user_type.value >= req_level.value:
-            return jsonify(level=False), 200
+            return jsonify(level=False), 403
         else:
             return jsonify(level=True), 200
     except KeyError:
@@ -82,4 +86,93 @@ def logout():
     return jsonify(status="OK"), 200
 
 
+@user_endpoint.route("/change-passwd", methods=["POST"])
+@need_user_logged
+def change_passwd(user):
+    data = request.get_json()
+    try:
+        if user.check_password(data["oldPwd"]):
+            user.set_password(data["newPwd"])
+            db.session.add(user)
+            db.session.commit()
+        else:
+            abort(403, description="Bad password")
+    except KeyError:
+        abort(400, description="Missing keys in JSON data")
+    return jsonify(status="OK"), 200
 
+
+@user_endpoint.route("/list/admin/all/<int:page>", methods=["GET"])
+@user_auth(UserType.ADMIN)
+def list_all_users(page):
+    users_paged = db.paginate(db.select(User).order_by(User.surname), page=page, per_page=10)
+    ret = {
+        "totalPages": users_paged.pages,
+        "currentPage": users_paged.page,
+        "users": []
+    }
+    for user in users_paged:
+        ret["users"].append({
+            "id": user.uuid,
+            "login": user.login,
+            "name": user.name,
+            "surname": user.surname,
+            "email": user.e_mail
+        })
+    return jsonify(ret), 200
+
+
+@user_endpoint.route("/edit/admin", methods=["POST"])
+@user_auth(UserType.ADMIN)
+def admin_edit_user():
+    data = request.get_json()
+    try:
+        target_user: User = User.query.filter_by(uuid=data["id"]).first_or_404(description="Target user not found")
+        target_user.name = data["name"]
+        target_user.surname = data["surname"]
+        target_user.login = data["login"]
+        target_user.e_mail = data["email"]
+        if not data["password"] == "":
+            target_user.set_password(data["password"])
+        db.session.add(target_user)
+        db.session.commit()
+        return jsonify(stat="OK"), 200
+    except ValueError:
+        abort_bad_json()
+    except KeyError:
+        abort_bad_json()
+    except IntegrityError:
+        return jsonify(message=f"Login {data['login']} is already taken"), 409
+
+
+@user_endpoint.route("/remove", methods=["DELETE"])
+@user_auth(UserType.ADMIN)
+@need_user_logged
+def remove_user(user):
+    data = request.get_json()
+    try:
+        if user.uuid == data["id"]:
+            abort(400, description="User can not delete himself")
+        deleted_user = User.query.filter_by(uuid=data["id"]).first_or_404(description="Designated user not found")
+        db.session.delete(deleted_user)
+        db.session.commit()
+        return jsonify(status='OK'), 200
+    except KeyError:
+        abort_bad_json()
+
+
+@user_endpoint.route('/list/all', methods=["GET"])
+@user_auth(UserType.USER)
+@need_user_logged
+def list_users(user):
+    ret = []
+    for other_user in User.query.all():
+        if user.uuid == other_user.uuid:
+            continue
+        ret.append({
+            'id': other_user.uuid,
+            'name': other_user.name,
+            'surname': other_user.surname,
+            'login': other_user.login
+        })
+    return jsonify(ret), 200

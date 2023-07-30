@@ -1,0 +1,85 @@
+#buttonMenu {
+    padding-top: 100px;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    margin: 10px;
+    width: 100%;
+}
+
+#profilePhoto {
+	background-image: url('../img/teplatePhoto.jpg');
+	width: 300px;
+	height: 300px;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#leftProfileSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#rightProfileSection {
+	width: 100%;
+	margin-top: 23px;		
+}
+
+#profileSection {
+	margin-top: 5vh;
+	display: grid;
+	grid-template-columns:  1fr 1fr;
+}
+
+#contact-section > .content > form{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    height: 400px;
+    width: 50%;
+    transform: translate(50%);
+}
+
+#contact-section > .content > h2 {
+	display: block;
+	text-align: center;
+}
+
+#contact-section > .content > form > input,
+#contact-section > .content > form > textarea{
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 10px;
+}
+
+#contact-section > .content > form > input:focus,
+#contact-section > .content > form > textarea:focus{
+    border: 2px solid #69B7CE;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #454545;
+    padding: 10px;
+}
+
+#contact-section > .content > form > input:nth-child(4) {
+    border: none;
+    background-color: #3498db;
+    font-size: 35px;
+    border-radius: 25px;
+    width: 100%;
+    height: 80px;
+}
+
+#contact-section > .content > form > input:nth-child(4):hover {
+    color: yellow;
+}
+
+#contact-section > .content > form > #contact-email:not(:placeholder-shown):invalid {
+    color: red;
+}
+

@@ -1,0 +1,55 @@
+#header {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  background-color: #3498db;
+  margin-bottom: 50px;
+}
+header {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  background-color: #3498db;
+  margin-bottom: 50px;
+}
+
+#wisName {
+  color: red;
+  display: inline;
+  margin: 0px;
+}
+
+#headerImage {
+  display: inline-block;
+  /*background-image: url('../img/headerIcon.png');*/
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+  width: 200px;
+  }
+  
+  #headerLogo {
+  position: relative;
+  height: 100%;
+  font-size: 70px;
+  display: inline-block;
+  display: flex;
+  font-weight: bolder;
+  padding-left: 15px;
+  }
+  
+  #headerLogo > a{
+  text-decoration: none;
+  color: white;
+  }
+  
+  #headerLogo > a:hover{
+  color: red;
+  }
+  
+
+  
+  #headerLogOut > a:hover{
+  color: red;
+  }

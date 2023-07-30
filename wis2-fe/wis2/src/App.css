@@ -1,0 +1,209 @@
+html {
+    font-family: PT Sans;
+    padding: 0;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+}
+
+#timeTablePage {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    overflow-y: hidden;
+}
+
+.timeTable {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 300px;
+    overflow-y: hidden;
+}
+
+.fc-media-screen {
+    position:relative;
+    max-height: 590px !important;
+    overflow-y: hidden;
+}
+
+#adminPageMainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 5%;
+    row-gap: 5%;
+}
+
+#adminPageMainContent > div:nth-child(2) {
+    grid-row: 1 / span 2;
+}
+
+#adminPageMainContent > div:nth-child(4) {
+    grid-column-start: 1;
+}
+
+#userProfileMainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#userProfileMainContent > form > button {
+    margin-top: 10px;
+}
+
+.form-group {
+    margin-top: 10px;
+    width: 50%;
+}
+
+#subjectRegistrationMainContent {
+    text-align: center;
+    align-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dropDown {
+    width: 200px;
+    height: 40px;
+}
+    
+#buttonMenu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 35px;
+    width: 50%;
+}
+    
+#mainContentSubjectDetailsPage {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 4rem;
+
+}
+
+#buttonMenu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 35px;
+    width: 50%;
+}
+
+#loginPageMainContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#loginPageMainContent > form > button {
+    margin-top: 10px;
+}
+
+.form-group {
+    margin-top: 10px;
+    width: 50%;
+}
+
+#lecturedCoursesMainContent,
+#mainHomePageContent,
+#loginPageMainContent,
+#noAccMainContent,
+#registeredSubjectsMainContent,
+#studentPageMainContent,
+#mainContentSubjectDetailsPage,
+#subjectRegistrationMainContent,
+#userProfileMainContent,
+#adminPageMainContent,
+#employeeMainContent,
+#courseEditPageContent,
+#garantPageMainContent {
+    max-width: 1500px;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+table > tbody > tr:nth-child(odd) {
+    background-color: #ffdead;
+}
+
+table > tbody > tr:nth-child(even) {
+    background-color: #f9d7a4;
+}
+
+table > tbody > tr:hover {
+    background-color: rgba(214, 11, 8, 0.223);
+}
+
+table > thead {
+    background-color: #ADD8E6;
+}
+
+table > tfoot > tr {
+    background-color: #ADD8E6;
+}
+
+.fa-thumbs-up {
+    color: rgb(2, 142, 2) !important;
+}
+.fa-thumbs-down {
+    color: rgb(196, 1, 1) !important;
+}
+
+.fa-plus-square {
+    color: rgb(2, 142, 2) !important;
+}
+
+.btn-primary {
+    background-color: #3498db !important;
+    font-weight: bold !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    color: yellow !important;
+}
+
+.fc-daygrid-day-number,
+.fc-col-header-cell-cushion {
+    color: black;
+    text-decoration: none;
+}
+
+.fc-button {
+    background-color: #3498db !important;
+    border: none;
+    font-weight: bold;
+}
+
+.fc-button:hover {
+    color: yellow !important;
+}
+
+.fc-timegrid-event {
+    background-color: #3498db !important;
+}
+
+#courseEditSpace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 5%;
+    row-gap: 5%;
+}
+
+#courseRelated,
+#courseParams {
+    overflow: auto;
+    max-height: 82vh;
+}
+
+textarea {
+    width: 100%;
+}
+
+.popupScroll {
+    height: 80vh;
+    overflow: auto;
+}

@@ -1,0 +1,74 @@
+[
+    {
+      "id": "0",
+      "shortName": "IPK",
+      "credits": 20,
+      "name": "Pocitacove komunikace",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+      "studentLimit": 500,
+      "isApproved": true,
+      "terms":[
+          {
+            "id": "0",
+            "title": "Pulsemestralka 1",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+            "startDate": "2022-10-01",
+            "endDate": "2022-12-06",
+            "registrationStartDate": "2022-09-06",
+            "registrationEndDate": "2022-09-16",
+            "maxMark": 30,
+            "studentLimit": 500,
+            "isRegistrationEnabled": true,
+            "isOptional": true
+          }
+        ]
+    },
+    {
+        "id": "1",
+        "shortName": "ISS",
+        "credits": 13,
+        "name": "Signaly a systemy",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+        "studentLimit": 450,
+        "isApproved": false,
+        "terms":[
+          {
+            "id": "1",
+            "title": "Pulsemestralka 2",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+            "startDate": "2022-10-01",
+            "endDate": "2022-12-06",
+            "registrationStartDate": "2022-09-06",
+            "registrationEndDate": "2022-09-16",
+            "maxMark": 30,
+            "studentLimit": 500,
+            "isRegistrationEnabled": true,
+            "isOptional": true
+          }
+        ]
+    },
+    {
+        "id": "2",
+        "shortName": "IZP",
+        "credits": 6,
+        "name": "Zaklady programovani",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+        "studentLimit": 700,
+        "isApproved": true,
+        "terms":[
+          {
+            "id": "2",
+            "title": "Pulsemestralka 3",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas lorem. In enim a arcu imperdiet malesuada. Donec iaculis gravida nulla. Quisque porta. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque porta. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Curabitur sagittis hendrerit ante. Praesent in mauris eu tortor porttitor accumsan. Vivamus porttitor turpis ac leo. Nullam sit amet magna in magna gravida vehicula. Sed ac dolor sit amet purus malesuada congue. Etiam neque. Maecenas libero. Etiam commodo dui eget wisi.",
+            "startDate": "2022-10-01",
+            "endDate": "2022-12-06",
+            "registrationStartDate": "2022-09-06",
+            "registrationEndDate": "2022-09-16",
+            "maxMark": 30,
+            "studentLimit": 500,
+            "isRegistrationEnabled": true,
+            "isOptional": true
+          }
+        ]
+      }
+]

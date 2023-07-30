@@ -1,0 +1,13 @@
+{
+  "totalPages":10,
+  "currentPage":3,
+  "marks":
+  [
+      {
+        "mark_id": 0,
+        "name": "loading",
+        "surname": "loading",
+        "points": "loading"
+      }
+  ]
+}

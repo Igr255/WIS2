@@ -1,5 +1,5 @@
 import os
-
+import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -63,6 +63,41 @@ def create_app(test_config=None):
         db.session.commit()
 
     @app.cli.command()
+    def seeddata():
+        print("Seeding testing data values ...", end='')
+        garant = models.User.User("tgaran00", "test", "garant", "garant@test.wis", models.User.UserType.USER,
+                                  "dev")
+        teacher = models.User.User("tteach00", "test", "teacher", "teacher@test.wis", models.User.UserType.USER,
+                                   "dev")
+        course = models.Course.Course("TEST", "test course", 99, garant, 5)
+        course.registered_lecturers.append(teacher)
+        course.description = "Dajaka snuska sraciek o tomto predmetu" \
+                             "A tady vuber <b>nezkousim</b> XSS :pepeLa:"
+        student = models.User.User("tstude00", "test", "student", "student@test.wis", models.User.UserType.USER,
+                                   "dev")
+        student2 = models.User.User("tstude01", "test", "student2", "student@test.wis", models.User.UserType.USER,
+                                   "dev")
+        coursereg = models.CourseRegistration.CourseRegistration(student, course)
+        coursereg2 = models.CourseRegistration.CourseRegistration(student2, course)
+        term = models.Term.Term("Test term", "10", 99, course)
+        term.start_date = datetime.datetime.utcnow()
+        termmark = models.TermMark.TermMark(student, term)
+        termmark2 = models.TermMark.TermMark(student2,term)
+        termmark.modify(9, teacher)
+        classroom = models.Classroom.Classroom("D105")
+        classroom.building = "bOzEtEcHoVa 220PIC0"
+        db.session.add(termmark2)
+        db.session.add(coursereg2)
+        db.session.add(classroom)
+        db.session.add(garant)
+        db.session.add(teacher)
+        db.session.add(student)
+        db.session.add(course)
+        db.session.add(coursereg)
+        db.session.commit()
+        print("DONE")
+
+    @app.cli.command()
     def dropdb():
         print(f"Dropping db ...", end='')
         db.drop_all()
@@ -74,5 +109,9 @@ def create_app(test_config=None):
         return "Hello world!", 200
 
     app.register_blueprint(bp.user.user_endpoint, url_prefix='/user')
+    app.register_blueprint(bp.course.course_endpoint, url_prefix='/course')
+    app.register_blueprint(bp.classroom.classroom_endpoint, url_prefix='/classroom')
+    app.register_blueprint(bp.term.term_endpoint, url_prefix='/term')
+    app.register_blueprint(bp.courseregistration.courseregistration_endpoint, url_prefix='/courseregistration')
 
     return app

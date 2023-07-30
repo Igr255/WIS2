@@ -1,0 +1,32 @@
+.wisTable {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid black;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.wisTable > tbody tr:nth-child(even) {
+    background-color: rgba(255, 181, 84, 0.3);
+}
+
+.wisTable > tbody tr:nth-child(odd) {
+    background-color: rgba(255, 181, 84, 0.6);
+}
+
+.wisTable > thead tr:nth-child(1) {
+    background-color: lightgray;
+}
+
+.wisTable tr,
+.wisTable th,
+.wisTable td {
+padding: 10px;
+text-align: left;
+}
+
+.wisTable>tbody>tr:hover td,
+.wisTable>tbody>tr:hover th {
+    background-color: rgba(255, 0, 0, 0.1)!important;
+}

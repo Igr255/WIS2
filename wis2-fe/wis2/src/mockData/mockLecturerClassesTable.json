@@ -1,0 +1,13 @@
+{
+  "totalPages":10,
+  "currentPage":3,
+  "classes":
+  [
+    {
+        "id": 1,
+        "shortcut": "loading",
+        "className": "loading",
+        "studentCount": "loading"
+    }
+  ]
+}

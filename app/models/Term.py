@@ -1,11 +1,6 @@
 from app import db
 from . import Utils
-
-
-term_pupil_rel = db.Table("term_pupil_rel",
-                          db.Column('_user_id', db.Integer, db.ForeignKey('users.id')),
-                          db.Column('_term_id', db.Integer, db.ForeignKey('terms.id'))
-                          )
+from sqlalchemy.ext.associationproxy import association_proxy
 
 
 class Term(db.Model):
@@ -13,6 +8,8 @@ class Term(db.Model):
     __tablename__ = "terms"
     _id = db.Column(db.Integer, primary_key=True, name='id')
     _course_ID = db.Column(db.Integer, db.ForeignKey('courses.id', ondelete='CASCADE'), nullable=False)
+    _lecturer_ID = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='SET NULL'))
+    _classroom_ID = db.Column(db.Integer, db.ForeignKey('classrooms.id', ondelete='SET NULL'))
     # Attributes
     uuid = db.Column(db.String(40), nullable=False, default=Utils.str_uuid4)
     title = db.Column(db.String(100), nullable=False)
@@ -27,7 +24,10 @@ class Term(db.Model):
     isOptional = db.Column(db.Boolean, nullable=False, default=False)
     # Relationship abstractions
     course = db.relationship("Course", backref=db.backref("terms", cascade='all,delete'), lazy='joined')
-    registered_students = db.relationship("User", backref="registered_terms", secondary=term_pupil_rel)
+    lecturer = db.relationship("User", backref=db.backref("taught_terms"), lazy='joined')
+    classroom = db.relationship("Classroom", backref=db.backref("terms_here"))
+    # Proxies
+    registered_students = association_proxy("marks", "student")
 
     @db.validates("uuid")
     def uuid_edit_block(self, key, value):

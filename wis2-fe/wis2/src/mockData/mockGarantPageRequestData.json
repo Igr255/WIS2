@@ -1,0 +1,23 @@
+[
+    {
+      "id": "0",
+      "userLogin": "xjano",
+      "userName": "Jano Zemak",
+      "courseId": "KKT",
+      "courseName": "Kokotinky :D"
+    },
+    {
+      "id": "2",
+      "userLogin": "xdano",
+      "userName": "Dano Mrkva",
+      "courseId": "RSM",
+      "courseName": "Rozek s mrkvu"
+    },
+    {
+      "id": "3",
+      "userLogin": "xpeto",
+      "userName": "Matus Petruska",
+      "courseId": "IHS",
+      "courseName": "Hardverove sietocky"
+    }
+]

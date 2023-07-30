@@ -2,6 +2,7 @@ import werkzeug.security as wsec
 from app import db
 import enum
 from . import Utils
+from sqlalchemy.ext.associationproxy import association_proxy
 
 
 class UserType(enum.Enum):
@@ -24,6 +25,9 @@ class User(db.Model):
     e_mail = db.Column(db.String(80))
     password_hash = db.Column(db.String(100), nullable=False)
     user_type = db.Column(db.Enum(UserType), nullable=False)
+    # Proxies
+    registered_courses = association_proxy("course_registrations", "course")
+    registered_terms = association_proxy("term_marks", "term")
 
     @db.validates("uuid")
     def uuid_edit_blocker(self, key, value):

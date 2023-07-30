@@ -1,0 +1,28 @@
+#headerLogOut {
+    color: red;
+    display: inline-block;
+    position: absolute;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 30px;
+    top: 32%;
+    font-weight: bold;
+}
+
+#headerLogOut > a{
+    color: white;
+    text-decoration: none;
+}
+
+#headerLogOut > button {
+    background-color: red !important;
+    font-weight: bold;
+}
+
+#headerLogOut > button:hover {
+    background-color: rgb(87, 8, 8) !important;
+    border: none;
+    font-weight: bold ;
+}

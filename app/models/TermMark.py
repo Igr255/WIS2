@@ -1,6 +1,7 @@
 from app import db
 from datetime import datetime
 from . import Utils
+from sqlalchemy.ext.associationproxy import association_proxy
 
 
 class TermMark(db.Model):
@@ -18,6 +19,8 @@ class TermMark(db.Model):
                               foreign_keys=[_student_ID])
     lastModifiedBy = db.relationship("User", foreign_keys=[_modified_by_ID])
     term = db.relationship("Term", backref=db.backref("marks", cascade='all,delete'))
+    # Proxies
+    course = association_proxy("term", "course")
 
     @db.validates("uuid")
     def uuid_edit_block(self, key, value):
@@ -35,5 +38,8 @@ class TermMark(db.Model):
         self.lastModifiedBy = by_user
         self.lastModified = datetime.utcnow()
 
+    def get_last_modified(self):
+        return (self.lastModifiedBy or ""), (self.lastModified or "")
+
     def __repr__(self):
-        return f"TermMark[{self._id}] last modified {self.lastModified}"
+        return f"TermMark[{self._id}] last modified {self._lastModified}"
